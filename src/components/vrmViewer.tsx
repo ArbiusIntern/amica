@@ -2,32 +2,44 @@ import { useContext, useCallback, useState } from "react";
 import { ViewerContext } from "@/features/vrmViewer/viewerContext";
 import { buildUrl } from "@/utils/buildUrl";
 import { config } from "@/utils/config";
+import { useVrmStoreContext } from "@/features/vrmStore/vrmStoreContext";
 import isTauri from "@/utils/isTauri";
 import { invoke } from "@tauri-apps/api/tauri";
 
 
 export default function VrmViewer() {
   const { viewer } = useContext(ViewerContext);
+  const { getCurrentVrm, vrmList, vrmListAddFile, isLoadingVrmList } = useVrmStoreContext();
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(false);
+  const isVrmLocal = 'local' == config("vrm_save_type");
 
   const canvasRef = useCallback(
     (canvas: HTMLCanvasElement) => {
-      if (canvas) {
+      if (canvas && (!isVrmLocal || !isLoadingVrmList)) {
         viewer.setup(canvas);
-        const vrmUrl = config("vrm_url");
+        
         (new Promise(async (resolve, reject) => {
           try {
-            await viewer.loadVrm(buildUrl(vrmUrl));
-            resolve(true);
+            const currentVrm = getCurrentVrm();
+            if (!currentVrm) {
+              setIsLoading(true);
+              resolve(false);
+            } else {
+              await viewer.loadVrm(buildUrl(currentVrm.url));
+              resolve(true);
+            }
           } catch (e) {
             reject(e);
           }
         }))
-        .then(() => {
-          console.log("vrm loaded");
-          setIsLoading(false);
-          if (isTauri()) invoke("close_splashscreen");
+        .then((loaded) => {
+          if (loaded) {
+            console.log("vrm loaded");
+            setLoadingError(false);
+            setIsLoading(false);
+            if (isTauri()) invoke("close_splashscreen");
+          }
         })
         .catch((e) => {
           console.error("vrm loading error", e);
@@ -57,14 +69,12 @@ export default function VrmViewer() {
 
           const file_type = file.name.split(".").pop();
           if (file_type === "vrm") {
-            const blob = new Blob([file], { type: "application/octet-stream" });
-            const url = window.URL.createObjectURL(blob);
-            viewer.loadVrm(url);
+            vrmListAddFile(file, viewer);
           }
         });
       }
     },
-    [viewer]
+    [vrmList.findIndex(value => value.hashEquals(getCurrentVrm()?.getHash() || "")) < 0, viewer]
   );
 
   return (
