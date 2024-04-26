@@ -19,7 +19,8 @@ import {
   EyeDropperIcon,
   EyeIcon,
   SwatchIcon,
-  MoonIcon
+  MoonIcon,
+  CogIcon,
 } from '@heroicons/react/24/outline';
 
 export function basicPage(
@@ -151,6 +152,7 @@ export function getIconFromPage(page: string): JSX.Element {
     case 'openai_tts_settings': return <AdjustmentsHorizontalIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
     case 'piper_settings': return <AdjustmentsHorizontalIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
     case 'coquiLocal_settings': return <AdjustmentsHorizontalIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
+    case 'rvc_settings': return <CogIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
 
     case 'stt_backend':         return <PencilSquareIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
     case 'stt_wake_word':  return <MoonIcon className="h-5 w-5 flex-none text-gray-800" aria-hidden="true" />;
@@ -196,7 +198,9 @@ function getLabelFromPage(page: string): string {
     case 'speecht5_settings':   return t('SpeechT5');
     case 'openai_tts_settings': return t('OpenAI');
     case 'piper_settings':      return t('Piper');
-    case 'coquiLocal_settings':      return t('coquiLocal');
+    case 'coquiLocal_settings': return t('coquiLocal');
+    case 'rvc_settings':        return t('RVC');
+
 
     case 'vision_backend':           return t('Vision Backend');
     case 'vision_llamacpp_settings': return t('LLama.cpp');

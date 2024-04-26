@@ -46,6 +46,7 @@ import { SpeechT5SettingsPage } from './settings/SpeechT5SettingsPage';
 import { OpenAITTSSettingsPage } from './settings/OpenAITTSSettingsPage';
 import { PiperSettingsPage } from './settings/PiperSettingsPage';
 import { CoquiLocalSettingsPage } from './settings/CoquiLocalSettingsPage';
+import { RVCSettingsPage } from './settings/RVCSettingsPage';
 
 import { STTBackendPage } from './settings/STTBackendPage';
 import { STTWakeWordSettingsPage } from './settings/STTWakeWordSettingsPage';
@@ -99,6 +100,20 @@ export const Settings = ({
 
   const [coquiLocalUrl, setCoquiLocalUrl] = useState(config("coquiLocal_url"));
   const [coquiLocalVoiceId, setCoquiLocalVoiceId] = useState(config("coquiLocal_voiceid"));
+
+  const [rvcUrl, setRvcUrl] = useState(config("rvc_url"));
+  const [rvcEnabled, setRvcEnabled] = useState<boolean>(config("rvc_enabled") === 'true' ? true : false);
+  const [rvcModelName, setRvcModelName] = useState(config("rvc_model_name"));
+  const [rvcIndexPath, setRvcIndexPath] = useState(config("rvc_index_path"));
+  const [rvcF0upKey, setRvcF0UpKey] = useState<number>(parseInt(config("rvc_f0_upkey")));
+  const [rvcF0Method, setRvcF0Method] = useState(config("rvc_f0_method"));
+  const [rvcIndexRate, setRvcIndexRate] = useState(config("rvc_index_rate"));
+  const [rvcIsHalf, setRvcIsHalf] = useState<boolean>(config("rvc_is_half") === 'true' ? true : false);
+  const [rvcFilterRadius, setRvcFilterRadius] = useState<number>(parseInt(config("rvc_filter_radius")));
+  const [rvcResampleSr, setRvcResampleSr] = useState<number>(parseInt(config("rvc_resample_sr")));
+  const [rvcRmsMixRate, setRvcRmsMixRate] = useState(config("rvc_rms_mix_rate"));
+  const [rvcProtect, setRvcProtect] = useState(config("rvc_protect"));
+
 
   const [visionBackend, setVisionBackend] = useState(config("vision_backend"));
   const [visionLlamaCppUrl, setVisionLlamaCppUrl] = useState(config("vision_llamacpp_url"));
@@ -213,6 +228,7 @@ export const Settings = ({
     openAITTSApiKey, openAITTSUrl, openAITTSModel, openAITTSVoice,
     piperUrl,
     coquiLocalUrl,coquiLocalVoiceId,
+    rvcUrl,rvcEnabled,rvcModelName,rvcIndexPath,rvcF0upKey,rvcF0Method,rvcIndexRate,rvcIsHalf,rvcFilterRadius,,rvcResampleSr,rvcRmsMixRate,rvcProtect,
     visionBackend,
     visionLlamaCppUrl,
     visionOllamaUrl, visionOllamaModel,
@@ -252,7 +268,7 @@ export const Settings = ({
 
     case 'tts':
       return <MenuPage
-        keys={["tts_backend", "elevenlabs_settings", "speecht5_settings", "openai_tts_settings", "piper_settings", "coquiLocal_settings"]}
+        keys={["tts_backend", "elevenlabs_settings", "speecht5_settings", "openai_tts_settings", "piper_settings", "coquiLocal_settings", "rvc_settings"]}
         menuClick={handleMenuClick} />;
 
     case 'stt':
@@ -408,6 +424,35 @@ export const Settings = ({
         coquiLocalVoiceId={coquiLocalVoiceId}
         setCoquiLocalVoiceId={setCoquiLocalVoiceId}
         setCoquiLocalUrl={setCoquiLocalUrl}
+        setSettingsUpdated={setSettingsUpdated}
+        />
+
+    case 'rvc_settings':
+      return <RVCSettingsPage
+        rvcUrl={rvcUrl}
+        rvcEnabled={rvcEnabled}
+        rvcModelName={rvcModelName}
+        rvcIndexPath={rvcIndexPath}
+        rvcF0upKey={rvcF0upKey}
+        rvcF0Method={rvcF0Method}
+        rvcIndexRate={rvcIndexRate}
+        rvcIsHalf={rvcIsHalf}
+        rvcFilterRadius={rvcFilterRadius}
+        rvcResampleSr={rvcResampleSr}
+        rvcRmsMixRate={rvcRmsMixRate}
+        rvcProtect={rvcProtect}
+        setRvcUrl={setRvcUrl}
+        setRvcEnabled={setRvcEnabled}
+        setRvcModelName={setRvcModelName}
+        setRvcIndexPath={setRvcIndexPath}
+        setRvcF0upKey={setRvcF0UpKey}
+        setRvcF0Method={setRvcF0Method}
+        setRvcIndexRate={setRvcIndexRate}
+        setRvcIsHalf={setRvcIsHalf}
+        setRvcFilterRadius={setRvcFilterRadius}
+        setRvcResampleSr={setRvcResampleSr}
+        setRvcRmsMixRate={setRvcRmsMixRate}
+        setRvcProtect={setRvcProtect}
         setSettingsUpdated={setSettingsUpdated}
         />
 
