@@ -40,7 +40,7 @@ const defaults = {
   openai_tts_voice: process.env.NEXT_PUBLIC_OPENAI_TTS_VOICE ?? 'nova',
   rvc_url: process.env.NEXT_PUBLIC_RVC_URL ?? 'http://localhost:8001/voice2voice',
   rvc_enabled: process.env.NEXT_PUBLIC_RVC_ENABLED ?? 'false',
-  rvc_model_name: process.env.NEXT_PUBLIC_RVC_MODEL_NAME ?? '.pth',
+  rvc_model_name: process.env.NEXT_PUBLIC_RVC_MODEL_NAME ?? 'model_name.pth',
   rvc_f0_upkey: process.env.NEXT_PUBLIC_RVC_F0_UPKEY ?? '0',
   rvc_f0_method: process.env.NEXT_PUBLIC_RVC_METHOD ?? 'crepe',
   rvc_index_path: process.env.NEXT_PUBLIC_RVC_INDEX_PATH ?? 'none',

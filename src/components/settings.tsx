@@ -112,7 +112,7 @@ export const Settings = ({
   const [rvcFilterRadius, setRvcFilterRadius] = useState<number>(parseInt(config("rvc_filter_radius")));
   const [rvcResampleSr, setRvcResampleSr] = useState<number>(parseInt(config("rvc_resample_sr")));
   const [rvcRmsMixRate, setRvcRmsMixRate] = useState(config("rvc_rms_mix_rate"));
-  const [rvcProtect, setRvcProtect] = useState(config("rvc_protect"));
+  const [rvcProtect, setRvcProtect] = useState<number>(parseInt(config("rvc_protect")));
 
 
   const [visionBackend, setVisionBackend] = useState(config("vision_backend"));

@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
+import { InformationCircleIcon } from '@heroicons/react/20/solid';
 
 import { BasicPage, FormRow } from './common';
 import { updateConfig } from "@/utils/config";
 import { TextInput } from '@/components/textInput';
 import { SwitchBox } from "@/components/switchBox"
 import { NumberInput } from '../numberInput';
+import { useState } from 'react';
 
 const f0Method = [
     {key: "none",   label: "None"},
@@ -52,7 +54,7 @@ export function RVCSettingsPage({
     rvcFilterRadius: number;
     rvcResampleSr: number;
     rvcRmsMixRate: string;
-    rvcProtect: string;
+    rvcProtect: number;
     setRvcUrl: (rvcUrl: string) => void;
     setRvcEnabled: (rvcEnabled: boolean) => void;
     setRvcModelName: (rvcModelName: string) => void;
@@ -64,10 +66,11 @@ export function RVCSettingsPage({
     setRvcFilterRadius: (rvcFilterRadius: number) => void;
     setRvcResampleSr: (rvcResampleSr: number) => void;
     setRvcRmsMixRate: (rvcRmsMixRate: string) => void;
-    setRvcProtect: (rvcProtect: string) => void;
+    setRvcProtect: (rvcProtect: number) => void;
     setSettingsUpdated: (updated: boolean) => void;
 }) {
     const { t } = useTranslation();
+    const [showInfo, setShowInfo] = useState(false);
 
     return (
         <BasicPage
@@ -127,10 +130,10 @@ export function RVCSettingsPage({
                             </FormRow>
                         </li>
                         <li className="py-4">
-                            <FormRow label={`${t("Specify")}(${t("F0up Key")})`}>
+                            <FormRow label={`${t("Specify")} ${t("F0 UpKey")}`}>
                                 <NumberInput
                                     value={rvcF0upKey}
-                                    min={0}
+                                    min={-12}
                                     max={12}
                                     onChange={(event: React.ChangeEvent<any>) => {
                                         setRvcF0upKey(event.target.value);
@@ -141,7 +144,7 @@ export function RVCSettingsPage({
                             </FormRow>
                         </li>
                         <li className="py-4">
-                            <FormRow label={`${t("Specify")}(${t("F0 Method")})`}>
+                            <FormRow label={`${t("Specify")} ${t("F0 Method")}`}>
                                 <select
                                 className="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 value={rvcF0Method}
@@ -224,8 +227,10 @@ export function RVCSettingsPage({
                         </li>
                         <li className="py-4">
                             <FormRow label={`${t("Specify")} ${t("Protect")}`}>
-                                <TextInput
+                                <NumberInput
                                     value={rvcProtect}
+                                    min={0}
+                                    max={0.5}
                                     onChange={(event: React.ChangeEvent<any>) => {
                                         setRvcProtect(event.target.value);
                                         updateConfig("rvc_protect", event.target.value);

@@ -11,7 +11,7 @@ export async function rvc(
     filter_radius: number,
     resample_sr: number,
     rms_mix_rate: number,
-    protect: string,
+    protect: number,
 
   ) {
     try {
@@ -30,7 +30,7 @@ export async function rvc(
             filter_radius: filter_radius.toString(),
             resample_sr: resample_sr.toString(),
             rms_mix_rate: rms_mix_rate.toString(),
-            protect: protect,
+            protect: protect.toString(),
         };
 
         const formData = new FormData();

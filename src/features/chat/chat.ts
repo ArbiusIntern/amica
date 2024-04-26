@@ -130,11 +130,11 @@ export class Chat {
     const rvcF0upKey = parseInt(config("rvc_f0_upkey"));
     const rvcF0Method = config("rvc_f0_method");
     const rvcIndexRate = config("rvc_index_rate");
-    const rvcIsHalf = Boolean(config("rvc_is_half"));
+    const rvcIsHalf = config("rvc_is_half") === "true" ? true : false;
     const rvcFilterRadius = parseInt(config("rvc_filter_radius"));
     const rvcResampleSr = parseInt(config("rvc_resample_sr"));
     const rvcRmsMixRate = parseInt(config("rvc_rms_mix_rate"));
-    const rvcProtect = config("rvc_protect");
+    const rvcProtect = parseInt(config("rvc_protect"));
 
 
     const voice = await rvc(
