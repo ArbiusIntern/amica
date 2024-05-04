@@ -1,0 +1,183 @@
+{
+  "latest_release": {
+    "version": "0.2.1",
+    "release_date": "2023-12-24",
+    "changes": [
+      "Fixes for macOS Microphone",
+      "WebCam support",
+      "Improved Ollama implementation",
+      "Initial Docker setup"
+    ],
+    "contributors": [
+      "https://github.com/andyccliao",
+      "https://github.com/Yvonne-Aizawa",
+      "https://github.com/dreamjz"
+    ],
+    "assets": [
+      {
+        "name": "amica_0.2.1_amd64.AppImage",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_0.2.1_amd64.AppImage"
+      },
+      {
+        "name": "amica_0.2.1_amd64.deb",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_0.2.1_amd64.deb"
+      },
+      {
+        "name": "amica_0.2.1_x64-setup.exe",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_0.2.1_x64-setup.exe"
+      },
+      {
+        "name": "amica_0.2.1_x64.dmg",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_0.2.1_x64.dmg"
+      },
+      {
+        "name": "amica_0.2.1_x64_en-US.msi",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_0.2.1_x64_en-US.msi"
+      },
+      {
+        "name": "amica_0.2.1_x64.app.tar.gz",
+        "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.1/amica_x64.app.tar.gz"
+      },
+      {
+        "name": "Source code (zip)",
+        "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.2.1.zip"
+      },
+      {
+        "name": "Source code (tar.gz)",
+        "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.2.1.tar.gz"
+      }
+    ]
+  },
+  "previous_releases": [
+    {
+      "version": "0.2.0",
+      "release_date": "2023-12-16",
+      "changes": [
+        "Desktop builds for Mac, Windows, and Linux",
+        "Supports sharing and importing characters"
+      ],
+      "contributors": [
+        "https://github.com/Aspie96",
+        "https://github.com/morphles",
+        "https://github.com/PatrickLearn",
+        "https://github.com/snowyu"
+      ],
+      "assets": [
+        {
+          "name": "amica_0.2.0_amd64.AppImage",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_0.2.0_amd64.AppImage"
+        },
+        {
+          "name": "amica_0.2.0_amd64.deb",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_0.2.0_amd64.deb"
+        },
+        {
+          "name": "amica_0.2.0_x64-setup.exe",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_0.2.0_x64-setup.exe"
+        },
+        {
+          "name": "amica_0.2.0_x64.dmg",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_0.2.0_x64.dmg"
+        },
+        {
+          "name": "amica_0.2.0_x64_en-US.msi",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_0.2.0_x64_en-US.msi"
+        },
+        {
+          "name": "amica_0.2.0_x64.app.tar.gz",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.2.0/amica_x64.app.tar.gz"
+        },
+        {
+          "name": "Source code (zip)",
+          "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.2.0.zip"
+        },
+        {
+          "name": "Source code (tar.gz)",
+          "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.2.0.tar.gz"
+        }
+      ]
+    },
+    {
+      "version": "0.1.2",
+      "release_date": "2023-12-15",
+      "changes": [
+        "Supports Ollama vision api (such as llava)"
+      ],
+      "assets": [
+        {
+          "name": "amica_0.1.2_amd64.AppImage",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_0.1.2_amd64.AppImage"
+        },
+        {
+          "name": "amica_0.1.2_amd64.deb",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_0.1.2_amd64.deb"
+        },
+        {
+          "name": "amica_0.1.2_x64-setup.exe",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_0.1.2_x64-setup.exe"
+        },
+        {
+          "name": "amica_0.1.2_x64.dmg",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_0.1.2_x64.dmg"
+        },
+        {
+          "name": "amica_0.1.2_x64_en-US.msi",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_0.1.2_x64_en-US.msi"
+        },
+        {
+          "name": "amica_0.1.2_x64.app.tar.gz",
+          "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.2/amica_x64.app.tar.gz"
+        },
+        {
+          "name": "Source code (zip)",
+          "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.1.2.zip"
+        },
+        {
+          "name": "Source code (tar.gz)",
+          "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.1.2.tar.gz"
+        }
+      ]
+    },
+    {
+        "version": "0.1.1",
+        "release_date": "2023-12-15",
+        "changes": [
+          "First release using https://tauri.app/"
+        ],
+        "assets": [
+          {
+            "name": "amica_0.1.1_amd64.AppImage",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_0.1.1_amd64.AppImage"
+          },
+          {
+            "name": "amica_0.1.1_amd64.deb",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_0.1.1_amd64.deb"
+          },
+          {
+            "name": "amica_0.1.1_x64-setup.exe",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_0.1.1_x64-setup.exe"
+          },
+          {
+            "name": "amica_0.1.1_x64.dmg",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_0.1.1_x64.dmg"
+          },
+          {
+            "name": "amica_0.1.1_x64_en-US.msi",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_0.1.1_x64_en-US.msi"
+          },
+          {
+            "name": "amica_0.1.1_x64.app.tar.gz",
+            "download_url": "https://github.com/semperai/amica/releases/download/app-v0.1.1/amica_x64.app.tar.gz"
+          },
+          {
+            "name": "Source code (zip)",
+            "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.1.1.zip"
+          },
+          {
+            "name": "Source code (tar.gz)",
+            "download_url": "https://github.com/semperai/amica/archive/refs/tags/app-v0.1.1.tar.gz"
+          }
+        ]
+      }
+  ]
+}
